@@ -1,4 +1,4 @@
-package client
+package jetbrains_space_api_client_go
 
 import (
 	"bytes"

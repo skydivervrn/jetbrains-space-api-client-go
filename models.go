@@ -1,4 +1,13 @@
-package client
+package jetbrains_space_api_client_go
+
+import "net/http"
+
+// Client -
+type Client struct {
+	HostURL    string
+	HTTPClient *http.Client
+	Token      string
+}
 
 // Project struct
 type Project struct {
