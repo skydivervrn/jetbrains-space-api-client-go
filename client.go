@@ -30,7 +30,7 @@ func NewClient(host, token string) (*Client, error) {
 	return &c, nil
 }
 
-func (c *Client) DoRequest(req *http.Request) ([]byte, error) {
+func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.Token))
 	req.Header.Set("Accept", "application/json")
 
