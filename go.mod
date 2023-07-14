@@ -1,3 +1,3 @@
-module jetbrains-space-api-client-go
+module github.com/skydivervrn/jetbrains-space-api-client-go
 
 go 1.19
