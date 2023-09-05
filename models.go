@@ -27,6 +27,24 @@ type Project struct {
 	Archived bool `json:"archived"`
 }
 
+// CreateProjectData struct
+type CreateProjectData struct {
+	Name string `json:"name"`
+	Key  struct {
+		Key string `json:"key"`
+	} `json:"key"`
+	Description string `json:"description"`
+	Private     bool   `json:"private"`
+}
+
+// UpdateProjectData struct
+type UpdateProjectData struct {
+	Id          string `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Private     bool   `json:"private"`
+}
+
 // ProjectRepos struct
 type ProjectRepos struct {
 	Repos []struct {
@@ -69,6 +87,7 @@ type Repository struct {
 type CreateRepositoryData struct {
 	Description   string `json:"description"`
 	DefaultBranch string `json:"defaultBranch"`
-	Initialize    bool   `json:"initialize"`
-	DefaultSetup  bool   `json:"defaultSetup"`
+	Id            string `json:"id"`
+	Name          string `json:"name"`
+	ProjectId     string `json:"project_id"`
 }

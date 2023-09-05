@@ -22,9 +22,9 @@ func (c *Client) GetRepository(repositoryName, projectId string) (Repository, er
 }
 
 // CreateRepository - Creates Repository with given name
-func (c *Client) CreateRepository(repositoryName string, projectId string, data CreateRepositoryData) (Repository, error) {
+func (c *Client) CreateRepository(data CreateRepositoryData) (Repository, error) {
 	bytesData, _ := json.Marshal(data)
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s/id:%s/repositories/%s", c.HostURL, baseApiEndpoint, projectId, repositoryName), bytes.NewBuffer(bytesData))
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s/id:%s/repositories/%s", c.HostURL, baseApiEndpoint, data.ProjectId, data.Name), bytes.NewBuffer(bytesData))
 	if err != nil {
 		return Repository{}, err
 	}

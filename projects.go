@@ -51,16 +51,9 @@ func (c *Client) getProjectRepos(projectId string) (ProjectRepos, error) {
 }
 
 // CreateProject - Creates project with given name
-func (c *Client) CreateProject(name string) (Project, error) {
-	data := new(struct {
-		Key struct {
-			Key string `json:"key"`
-		} `json:"key"`
-		Name string `json:"name"`
-	})
-	data.Name = name
-	data.Key.Key = strings.ToUpper(strings.ReplaceAll(name, " ", "-"))
-	bytesData, _ := json.Marshal(data)
+func (c *Client) CreateProject(createProjectData CreateProjectData) (Project, error) {
+	createProjectData.Key.Key = strings.ToUpper(strings.ReplaceAll(createProjectData.Name, " ", "-"))
+	bytesData, _ := json.Marshal(createProjectData)
 	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", c.HostURL, baseApiEndpoint), bytes.NewBuffer(bytesData))
 	if err != nil {
 		return Project{}, err
@@ -81,13 +74,9 @@ func (c *Client) CreateProject(name string) (Project, error) {
 }
 
 // UpdateProject - Creates project with given name
-func (c *Client) UpdateProject(id, name string) (Project, error) {
-	data := new(struct {
-		Name string `json:"name"`
-	})
-	data.Name = name
-	bytesData, _ := json.Marshal(data)
-	req, err := http.NewRequest("PATCH", fmt.Sprintf("%s%s/id:%s", c.HostURL, baseApiEndpoint, id), bytes.NewBuffer(bytesData))
+func (c *Client) UpdateProject(updateProjectData UpdateProjectData) (Project, error) {
+	bytesData, _ := json.Marshal(updateProjectData)
+	req, err := http.NewRequest("PATCH", fmt.Sprintf("%s%s/id:%s", c.HostURL, baseApiEndpoint, updateProjectData.Id), bytes.NewBuffer(bytesData))
 	if err != nil {
 		return Project{}, err
 	}
