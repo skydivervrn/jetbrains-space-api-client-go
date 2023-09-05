@@ -15,11 +15,11 @@ type Project struct {
 	Key struct {
 		Key string `json:"key"`
 	} `json:"key"`
-	Name                     string      `json:"name"`
-	Private                  bool        `json:"private"`
-	Description              string      `json:"description"`
-	Icon                     interface{} `json:"icon"`
-	LatestRepositoryActivity interface{} `json:"latestRepositoryActivity"`
+	Name                     string `json:"name"`
+	Private                  bool   `json:"private"`
+	Description              string `json:"description"`
+	Icon                     string `json:"icon"`
+	LatestRepositoryActivity string `json:"latestRepositoryActivity"`
 	CreatedAt                struct {
 		Iso       string `json:"iso"`
 		Timestamp int64  `json:"timestamp"`
@@ -30,16 +30,16 @@ type Project struct {
 // ProjectRepos struct
 type ProjectRepos struct {
 	Repos []struct {
-		ID                        string      `json:"id"`
-		Name                      string      `json:"name"`
-		Description               string      `json:"description"`
-		LatestActivity            interface{} `json:"latestActivity"`
-		ProxyPushNotification     interface{} `json:"proxyPushNotification"`
-		ProxyPushNotificationBody interface{} `json:"proxyPushNotificationBody"`
-		State                     string      `json:"state"`
-		InitProgress              interface{} `json:"initProgress"`
-		ReadmeName                interface{} `json:"readmeName"`
-		MonthlyActivity           interface{} `json:"monthlyActivity"`
+		ID                        string `json:"id"`
+		Name                      string `json:"name"`
+		Description               string `json:"description"`
+		LatestActivity            string `json:"latestActivity"`
+		ProxyPushNotification     string `json:"proxyPushNotification"`
+		ProxyPushNotificationBody string `json:"proxyPushNotificationBody"`
+		State                     string `json:"state"`
+		InitProgress              string `json:"initProgress"`
+		ReadmeName                string `json:"readmeName"`
+		MonthlyActivity           string `json:"monthlyActivity"`
 		DefaultBranch             struct {
 			Head string `json:"head"`
 			Ref  string `json:"ref"`
@@ -49,16 +49,16 @@ type ProjectRepos struct {
 
 // Repository struct
 type Repository struct {
-	ID                        string      `json:"id"`
-	Name                      string      `json:"name"`
-	Description               string      `json:"description"`
-	LatestActivity            interface{} `json:"latestActivity"`
-	ProxyPushNotification     interface{} `json:"proxyPushNotification"`
-	ProxyPushNotificationBody interface{} `json:"proxyPushNotificationBody"`
-	State                     string      `json:"state"`
-	InitProgress              interface{} `json:"initProgress"`
-	ReadmeName                interface{} `json:"readmeName"`
-	MonthlyActivity           interface{} `json:"monthlyActivity"`
+	ID                        string `json:"id"`
+	Name                      string `json:"name"`
+	Description               string `json:"description"`
+	LatestActivity            string `json:"latestActivity"`
+	ProxyPushNotification     string `json:"proxyPushNotification"`
+	ProxyPushNotificationBody string `json:"proxyPushNotificationBody"`
+	State                     string `json:"state"`
+	InitProgress              string `json:"initProgress"`
+	ReadmeName                string `json:"readmeName"`
+	MonthlyActivity           string `json:"monthlyActivity"`
 	DefaultBranch             struct {
 		Head string `json:"head"`
 		Ref  string `json:"ref"`
